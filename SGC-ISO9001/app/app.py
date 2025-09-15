@@ -1,14 +1,10 @@
+ 
+# Ruta para formulario de Registro ISO
+@app.route('/registro-iso', methods=['GET'])
+@login_required
+def registro_iso():
+    return render_template('registro_iso.html')
 
-# Ruta para formulario de Registro ISO
-@app.route('/registro-iso', methods=['GET'])
-@login_required
-def registro_iso():
-    return render_template('registro_iso.html')
-# Ruta para formulario de Registro ISO
-@app.route('/registro-iso', methods=['GET'])
-@login_required
-def registro_iso():
-    return render_template('registro_iso.html')
 
 from flask import Flask, render_template, request, redirect, url_for, Response, session
 import sqlite3

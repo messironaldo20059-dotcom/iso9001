@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, Response, session
 import sqlite3
 import os
+from functools import wraps
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'  # Cambia esto por una clave segura en producción
@@ -93,12 +94,8 @@ def exportar_auditorias():
             yield ','.join([str(x) if x is not None else '' for x in row]) + '\n'
     return Response(generate(), mimetype='text/csv', headers={"Content-Disposition": "attachment;filename=auditorias.csv"})
 
-from flask import Flask, render_template, request, redirect, url_for
-import sqlite3
-import os
 
-app = Flask(__name__)
-DB_PATH = os.path.join(os.path.dirname(__file__), 'sgc.db')
+# (DB_PATH ya está definido arriba, no es necesario redefinirlo)
 
 # Inicialización de la base de datos
 def init_db():

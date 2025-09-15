@@ -6,6 +6,22 @@
 </head>
 <body>
     <h1>Estructura Documental</h1>
+    <form method="post" action="/documentos">
+        <label>Tipo:
+            <select name="tipo" required>
+                <option value="Política y Objetivos de Calidad">Política y Objetivos de Calidad</option>
+                <option value="Procesos y Procedimientos">Procesos y Procedimientos</option>
+                <option value="Registros">Registros</option>
+                <option value="Acta de reunión">Acta de reunión</option>
+                <option value="Indicador de desempeño">Indicador de desempeño</option>
+            </select>
+        </label><br>
+        <label>Nombre: <input type="text" name="nombre" required></label><br>
+    <label>Enlace/Archivo: <input type="text" name="enlace" placeholder="URL o nombre de archivo"></label><br>
+    <label>Enlace externo (Drive, SharePoint, GitHub): <input type="text" name="externo" placeholder="URL externo"></label><br>
+        <label>Fecha: <input type="date" name="fecha" required></label><br>
+        <button type="submit">Registrar Documento</button>
+    </form>
     <table border="1">
         <tr><th>ID</th><th>Tipo</th><th>Nombre</th><th>Enlace</th><th>Fecha</th></tr>
         {% for doc in documentos %}
@@ -18,6 +34,8 @@
         </tr>
         {% endfor %}
     </table>
+    <a href="/documentos/exportar"><button>Exportar a CSV</button></a>
+    <br><br>
     <a href="/">Volver al menú</a>
 </body>
 </html>

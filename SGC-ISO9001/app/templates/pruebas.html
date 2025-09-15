@@ -6,6 +6,19 @@
 </head>
 <body>
     <h1>Pruebas de Software</h1>
+    <form method="post" action="/pruebas">
+        <label>Nombre de la prueba: <input type="text" name="nombre" required></label><br>
+        <label>Resultado:
+            <select name="resultado" required>
+                <option value="Aprobada">Aprobada</option>
+                <option value="Rechazada">Rechazada</option>
+                <option value="Pendiente">Pendiente</option>
+            </select>
+        </label><br>
+    <label>Enlace externo (Drive, GitHub, Jira): <input type="text" name="externo" placeholder="URL externo"></label><br>
+    <label>Fecha: <input type="date" name="fecha" required></label><br>
+        <button type="submit">Registrar Prueba</button>
+    </form>
     <table border="1">
         <tr><th>ID</th><th>Nombre</th><th>Resultado</th><th>Fecha</th></tr>
         {% for prueba in pruebas %}
@@ -17,6 +30,8 @@
         </tr>
         {% endfor %}
     </table>
+    <a href="/pruebas/exportar"><button>Exportar a CSV</button></a>
+    <br><br>
     <a href="/">Volver al menú</a>
 </body>
 </html>

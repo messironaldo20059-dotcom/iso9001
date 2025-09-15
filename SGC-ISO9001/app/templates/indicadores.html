@@ -6,6 +6,13 @@
 </head>
 <body>
     <h1>Indicadores de Desempeño</h1>
+    <form method="post" action="/indicadores">
+        <label>Nombre del indicador: <input type="text" name="nombre" required></label><br>
+        <label>Valor: <input type="text" name="valor" required></label><br>
+    <label>Enlace externo (Excel, Power BI): <input type="text" name="externo" placeholder="URL externo"></label><br>
+    <label>Fecha: <input type="date" name="fecha" required></label><br>
+        <button type="submit">Registrar Indicador</button>
+    </form>
     <table border="1">
         <tr><th>ID</th><th>Nombre</th><th>Valor</th><th>Fecha</th></tr>
         {% for ind in indicadores %}
@@ -17,6 +24,8 @@
         </tr>
         {% endfor %}
     </table>
+    <a href="/indicadores/exportar"><button>Exportar a CSV</button></a>
+    <br><br>
     <a href="/">Volver al menú</a>
 </body>
 </html>

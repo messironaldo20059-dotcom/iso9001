@@ -6,6 +6,20 @@
 </head>
 <body>
     <h1>Capacitación</h1>
+    <form method="post" action="/capacitacion">
+        <label>Tema: <input type="text" name="tema" required></label><br>
+        <label>Tipo:
+            <select name="tipo" required>
+                <option value="Taller">Taller</option>
+                <option value="Guía">Guía</option>
+                <option value="Video">Video</option>
+            </select>
+        </label><br>
+    <label>Enlace/Archivo: <input type="text" name="enlace" placeholder="URL o nombre de archivo"></label><br>
+    <label>Enlace externo (Drive, YouTube): <input type="text" name="externo" placeholder="URL externo"></label><br>
+        <label>Fecha: <input type="date" name="fecha" required></label><br>
+        <button type="submit">Registrar Capacitación</button>
+    </form>
     <table border="1">
         <tr><th>ID</th><th>Tema</th><th>Tipo</th><th>Enlace</th><th>Fecha</th></tr>
         {% for cap in capacitacion %}

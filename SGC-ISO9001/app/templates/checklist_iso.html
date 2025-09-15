@@ -81,34 +81,47 @@
             <div class="success">{{ msg }}</div>
         {% endif %}
         <div class="checklist">
-            <div class="item"><input type="checkbox" id="c4_1"><label for="c4_1">4.1 Comprensión de la organización y su contexto</label></div>
-            <div class="item"><input type="checkbox" id="c4_2"><label for="c4_2">4.2 Necesidades y expectativas de las partes interesadas</label></div>
-            <div class="item"><input type="checkbox" id="c4_3"><label for="c4_3">4.3 Alcance del sistema de gestión de la calidad</label></div>
-            <div class="item"><input type="checkbox" id="c4_4"><label for="c4_4">4.4 Sistema de gestión de la calidad y sus procesos</label></div>
-            <div class="item"><input type="checkbox" id="c5_1"><label for="c5_1">5.1 Liderazgo y compromiso</label></div>
-            <div class="item"><input type="checkbox" id="c5_2"><label for="c5_2">5.2 Política</label></div>
-            <div class="item"><input type="checkbox" id="c5_3"><label for="c5_3">5.3 Roles, responsabilidades y autoridades</label></div>
-            <div class="item"><input type="checkbox" id="c6_1"><label for="c6_1">6.1 Acciones para abordar riesgos y oportunidades</label></div>
-            <div class="item"><input type="checkbox" id="c6_2"><label for="c6_2">6.2 Objetivos de la calidad y planificación para lograrlos</label></div>
-            <div class="item"><input type="checkbox" id="c6_3"><label for="c6_3">6.3 Planificación de los cambios</label></div>
-            <div class="item"><input type="checkbox" id="c7_1"><label for="c7_1">7.1 Recursos</label></div>
-            <div class="item"><input type="checkbox" id="c7_2"><label for="c7_2">7.2 Competencia</label></div>
-            <div class="item"><input type="checkbox" id="c7_3"><label for="c7_3">7.3 Toma de conciencia</label></div>
-            <div class="item"><input type="checkbox" id="c7_4"><label for="c7_4">7.4 Comunicación</label></div>
-            <div class="item"><input type="checkbox" id="c7_5"><label for="c7_5">7.5 Información documentada</label></div>
-            <div class="item"><input type="checkbox" id="c8_1"><label for="c8_1">8.1 Planificación y control operacional</label></div>
-            <div class="item"><input type="checkbox" id="c8_2"><label for="c8_2">8.2 Requisitos para los productos y servicios</label></div>
-            <div class="item"><input type="checkbox" id="c8_3"><label for="c8_3">8.3 Diseño y desarrollo de productos y servicios</label></div>
-            <div class="item"><input type="checkbox" id="c8_4"><label for="c8_4">8.4 Control de los procesos, productos y servicios suministrados externamente</label></div>
-            <div class="item"><input type="checkbox" id="c8_5"><label for="c8_5">8.5 Producción y provisión del servicio</label></div>
-            <div class="item"><input type="checkbox" id="c8_6"><label for="c8_6">8.6 Liberación de los productos y servicios</label></div>
-            <div class="item"><input type="checkbox" id="c8_7"><label for="c8_7">8.7 Control de las salidas no conformes</label></div>
-            <div class="item"><input type="checkbox" id="c9_1"><label for="c9_1">9.1 Seguimiento, medición, análisis y evaluación</label></div>
-            <div class="item"><input type="checkbox" id="c9_2"><label for="c9_2">9.2 Auditoría interna</label></div>
-            <div class="item"><input type="checkbox" id="c9_3"><label for="c9_3">9.3 Revisión por la dirección</label></div>
-            <div class="item"><input type="checkbox" id="c10_1"><label for="c10_1">10.1 No conformidad y acción correctiva</label></div>
-            <div class="item"><input type="checkbox" id="c10_2"><label for="c10_2">10.2 Mejora continua</label></div>
-            <div class="item"><input type="checkbox" id="c10_3"><label for="c10_3">10.3 Innovación y aprendizaje organizacional</label></div>
+            {% set items = [
+                ('c4_1', '4.1 Comprensión de la organización y su contexto'),
+                ('c4_2', '4.2 Necesidades y expectativas de las partes interesadas'),
+                ('c4_3', '4.3 Alcance del sistema de gestión de la calidad'),
+                ('c4_4', '4.4 Sistema de gestión de la calidad y sus procesos'),
+                ('c5_1', '5.1 Liderazgo y compromiso'),
+                ('c5_2', '5.2 Política'),
+                ('c5_3', '5.3 Roles, responsabilidades y autoridades'),
+                ('c6_1', '6.1 Acciones para abordar riesgos y oportunidades'),
+                ('c6_2', '6.2 Objetivos de la calidad y planificación para lograrlos'),
+                ('c6_3', '6.3 Planificación de los cambios'),
+                ('c7_1', '7.1 Recursos'),
+                ('c7_2', '7.2 Competencia'),
+                ('c7_3', '7.3 Toma de conciencia'),
+                ('c7_4', '7.4 Comunicación'),
+                ('c7_5', '7.5 Información documentada'),
+                ('c8_1', '8.1 Planificación y control operacional'),
+                ('c8_2', '8.2 Requisitos para los productos y servicios'),
+                ('c8_3', '8.3 Diseño y desarrollo de productos y servicios'),
+                ('c8_4', '8.4 Control de los procesos, productos y servicios suministrados externamente'),
+                ('c8_5', '8.5 Producción y provisión del servicio'),
+                ('c8_6', '8.6 Liberación de los productos y servicios'),
+                ('c8_7', '8.7 Control de las salidas no conformes'),
+                ('c9_1', '9.1 Seguimiento, medición, análisis y evaluación'),
+                ('c9_2', '9.2 Auditoría interna'),
+                ('c9_3', '9.3 Revisión por la dirección'),
+                ('c10_1', '10.1 No conformidad y acción correctiva'),
+                ('c10_2', '10.2 Mejora continua'),
+                ('c10_3', '10.3 Innovación y aprendizaje organizacional')
+            ] %}
+            {% for key, label in items %}
+            <div class="item">
+                <label>{{ label }}</label>
+                <input type="radio" name="{{ key }}" value="2" id="{{ key }}_aprobado" required>
+                <label for="{{ key }}_aprobado" style="color: #059669;">Aprobado</label>
+                <input type="radio" name="{{ key }}" value="1" id="{{ key }}_proceso">
+                <label for="{{ key }}_proceso" style="color: #f59e42;">En proceso</label>
+                <input type="radio" name="{{ key }}" value="0" id="{{ key }}_rechazado">
+                <label for="{{ key }}_rechazado" style="color: #ef4444;">Rechazado</label>
+            </div>
+            {% endfor %}
         </div>
         <div class="actions">
             <button type="submit" class="btn">Guardar Checklist</button>

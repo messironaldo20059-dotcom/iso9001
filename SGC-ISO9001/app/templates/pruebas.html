@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pruebas de Software</title>
+</head>
+<body>
+    <h1>Pruebas de Software</h1>
+    <table border="1">
+        <tr><th>ID</th><th>Nombre</th><th>Resultado</th><th>Fecha</th></tr>
+        {% for prueba in pruebas %}
+        <tr>
+            <td>{{ prueba[0] }}</td>
+            <td>{{ prueba[1] }}</td>
+            <td>{{ prueba[2] }}</td>
+            <td>{{ prueba[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Volver al menú</a>
+</body>
+</html>

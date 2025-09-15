@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Indicadores de Desempeño</title>
+</head>
+<body>
+    <h1>Indicadores de Desempeño</h1>
+    <table border="1">
+        <tr><th>ID</th><th>Nombre</th><th>Valor</th><th>Fecha</th></tr>
+        {% for ind in indicadores %}
+        <tr>
+            <td>{{ ind[0] }}</td>
+            <td>{{ ind[1] }}</td>
+            <td>{{ ind[2] }}</td>
+            <td>{{ ind[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Volver al menú</a>
+</body>
+</html>

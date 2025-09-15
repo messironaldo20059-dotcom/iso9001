@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Auditorías</title>
+</head>
+<body>
+    <h1>Auditorías</h1>
+    <table border="1">
+        <tr><th>ID</th><th>Tipo</th><th>Resultado</th><th>Fecha</th></tr>
+        {% for aud in auditorias %}
+        <tr>
+            <td>{{ aud[0] }}</td>
+            <td>{{ aud[1] }}</td>
+            <td>{{ aud[2] }}</td>
+            <td>{{ aud[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Volver al menú</a>
+</body>
+</html>

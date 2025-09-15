@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estructura Documental</title>
+</head>
+<body>
+    <h1>Estructura Documental</h1>
+    <table border="1">
+        <tr><th>ID</th><th>Tipo</th><th>Nombre</th><th>Enlace</th><th>Fecha</th></tr>
+        {% for doc in documentos %}
+        <tr>
+            <td>{{ doc[0] }}</td>
+            <td>{{ doc[1] }}</td>
+            <td>{{ doc[2] }}</td>
+            <td>{{ doc[3] }}</td>
+            <td>{{ doc[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Volver al menú</a>
+</body>
+</html>

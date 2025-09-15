@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Checklist ISO 9001 (4.1 a 10.3)</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #F8FBFF;
+            font-family: 'Inter', 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 600px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: #3B82F6;
+        }
+        .checklist {
+            margin-bottom: 2rem;
+        }
+        .item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 1.1rem;
+        }
+        label {
+            font-size: 1.05rem;
+            color: #222;
+            cursor: pointer;
+        }
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .btn {
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 999px;
+            padding: 0.8rem 2.2rem;
+            cursor: pointer;
+            background: #4DA6FF;
+            color: #fff;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #3B82F6;
+        }
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            border-radius: 8px;
+            padding: 0.7rem 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form class="card" id="checklistISO" method="post">
+        <h2>Checklist ISO 9001 (4.1 a 10.3)</h2>
+        {% if msg %}
+            <div class="success">{{ msg }}</div>
+        {% endif %}
+        <div class="checklist">
+            <div class="item"><input type="checkbox" id="c4_1"><label for="c4_1">4.1 Comprensión de la organización y su contexto</label></div>
+            <div class="item"><input type="checkbox" id="c4_2"><label for="c4_2">4.2 Necesidades y expectativas de las partes interesadas</label></div>
+            <div class="item"><input type="checkbox" id="c4_3"><label for="c4_3">4.3 Alcance del sistema de gestión de la calidad</label></div>
+            <div class="item"><input type="checkbox" id="c4_4"><label for="c4_4">4.4 Sistema de gestión de la calidad y sus procesos</label></div>
+            <div class="item"><input type="checkbox" id="c5_1"><label for="c5_1">5.1 Liderazgo y compromiso</label></div>
+            <div class="item"><input type="checkbox" id="c5_2"><label for="c5_2">5.2 Política</label></div>
+            <div class="item"><input type="checkbox" id="c5_3"><label for="c5_3">5.3 Roles, responsabilidades y autoridades</label></div>
+            <div class="item"><input type="checkbox" id="c6_1"><label for="c6_1">6.1 Acciones para abordar riesgos y oportunidades</label></div>
+            <div class="item"><input type="checkbox" id="c6_2"><label for="c6_2">6.2 Objetivos de la calidad y planificación para lograrlos</label></div>
+            <div class="item"><input type="checkbox" id="c6_3"><label for="c6_3">6.3 Planificación de los cambios</label></div>
+            <div class="item"><input type="checkbox" id="c7_1"><label for="c7_1">7.1 Recursos</label></div>
+            <div class="item"><input type="checkbox" id="c7_2"><label for="c7_2">7.2 Competencia</label></div>
+            <div class="item"><input type="checkbox" id="c7_3"><label for="c7_3">7.3 Toma de conciencia</label></div>
+            <div class="item"><input type="checkbox" id="c7_4"><label for="c7_4">7.4 Comunicación</label></div>
+            <div class="item"><input type="checkbox" id="c7_5"><label for="c7_5">7.5 Información documentada</label></div>
+            <div class="item"><input type="checkbox" id="c8_1"><label for="c8_1">8.1 Planificación y control operacional</label></div>
+            <div class="item"><input type="checkbox" id="c8_2"><label for="c8_2">8.2 Requisitos para los productos y servicios</label></div>
+            <div class="item"><input type="checkbox" id="c8_3"><label for="c8_3">8.3 Diseño y desarrollo de productos y servicios</label></div>
+            <div class="item"><input type="checkbox" id="c8_4"><label for="c8_4">8.4 Control de los procesos, productos y servicios suministrados externamente</label></div>
+            <div class="item"><input type="checkbox" id="c8_5"><label for="c8_5">8.5 Producción y provisión del servicio</label></div>
+            <div class="item"><input type="checkbox" id="c8_6"><label for="c8_6">8.6 Liberación de los productos y servicios</label></div>
+            <div class="item"><input type="checkbox" id="c8_7"><label for="c8_7">8.7 Control de las salidas no conformes</label></div>
+            <div class="item"><input type="checkbox" id="c9_1"><label for="c9_1">9.1 Seguimiento, medición, análisis y evaluación</label></div>
+            <div class="item"><input type="checkbox" id="c9_2"><label for="c9_2">9.2 Auditoría interna</label></div>
+            <div class="item"><input type="checkbox" id="c9_3"><label for="c9_3">9.3 Revisión por la dirección</label></div>
+            <div class="item"><input type="checkbox" id="c10_1"><label for="c10_1">10.1 No conformidad y acción correctiva</label></div>
+            <div class="item"><input type="checkbox" id="c10_2"><label for="c10_2">10.2 Mejora continua</label></div>
+            <div class="item"><input type="checkbox" id="c10_3"><label for="c10_3">10.3 Innovación y aprendizaje organizacional</label></div>
+        </div>
+        <div class="actions">
+            <button type="submit" class="btn">Guardar Checklist</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

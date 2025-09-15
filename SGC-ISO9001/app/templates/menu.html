@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>SGC - Menú Principal</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 2em; }
-        h1 { color: #2c3e50; }
-        ul { list-style: none; padding: 0; }
-        li { margin: 1em 0; }
-        a { text-decoration: none; color: #2980b9; font-size: 1.2em; }
-        a:hover { text-decoration: underline; }
-    </style>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Herramienta SGC - ISO 9001:2015</h1>
-    <ul>
-        <li><a href="/incidencias">Gestión de Incidencias</a></li>
-        <li><a href="/documentos">Estructura Documental</a></li>
-        <li><a href="/pruebas">Pruebas de Software</a></li>
-        <li><a href="/acciones">Acciones Correctivas</a></li>
-        <li><a href="/indicadores">Indicadores de Desempeño</a></li>
-        <li><a href="/auditorias">Auditorías</a></li>
-        <li><a href="/capacitacion">Capacitación</a></li>
-    </ul>
+    <div class="header">
+        <h1>Herramienta SGC - ISO 9001:2015</h1>
+    </div>
+    <div class="main">
+        <div class="card">
+            <ul style="list-style:none; padding:0;">
+                <li><a class="btn" href="/incidencias">Gestión de Incidencias</a></li>
+                <li><a class="btn" href="/documentos">Estructura Documental</a></li>
+                <li><a class="btn" href="/pruebas">Pruebas de Software</a></li>
+                <li><a class="btn" href="/acciones">Acciones Correctivas</a></li>
+                <li><a class="btn" href="/indicadores">Indicadores de Desempeño</a></li>
+                <li><a class="btn" href="/auditorias">Auditorías</a></li>
+                <li><a class="btn" href="/capacitacion">Capacitación</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

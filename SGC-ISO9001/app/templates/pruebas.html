@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Pruebas de Software</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Pruebas de Software</h1>
-    <form method="post" action="/pruebas">
+    <div class="header">
+        <h1>Pruebas de Software</h1>
+    </div>
+    <div class="main">
+        <div class="card">
+            <form method="post" action="/pruebas">
         <label>Nombre de la prueba: <input type="text" name="nombre" required></label><br>
         <label>Resultado:
             <select name="resultado" required>

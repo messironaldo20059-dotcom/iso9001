@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Indicadores de Desempeño</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Indicadores de Desempeño</h1>
-    <form method="post" action="/indicadores">
+    <div class="header">
+        <h1>Indicadores de Desempeño</h1>
+    </div>
+    <div class="main">
+        <div class="card">
+            <form method="post" action="/indicadores">
         <label>Nombre del indicador: <input type="text" name="nombre" required></label><br>
         <label>Valor: <input type="text" name="valor" required></label><br>
     <label>Enlace externo (Excel, Power BI): <input type="text" name="externo" placeholder="URL externo"></label><br>

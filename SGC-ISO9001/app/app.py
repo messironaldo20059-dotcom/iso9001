@@ -115,6 +115,8 @@ def exportar_auditorias():
 
 # Inicialización de la base de datos
 def init_db():
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
     # Checklist ISO 9001 (4.1 a 10.3)
     c.execute('''CREATE TABLE IF NOT EXISTS checklist_iso (
         id INTEGER PRIMARY KEY AUTOINCREMENT,

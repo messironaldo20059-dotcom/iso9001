@@ -1,3 +1,4 @@
+
 # Ruta para checklist ISO 9001 (4.1 a 10.3)
 from datetime import datetime
 @app.route('/checklist-iso', methods=['GET', 'POST'])
@@ -27,6 +28,7 @@ def checklist_iso():
         msg = 'Checklist guardado con éxito.'
         return render_template('checklist_iso.html', msg=msg)
     return render_template('checklist_iso.html', msg=msg)
+
 
 
 from flask import Flask, render_template, request, redirect, url_for, Response, session

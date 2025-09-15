@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SGC SoftDev Solutions</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 2em; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #f0f0f0; }
+        h1 { color: #2c3e50; }
+        form { margin-bottom: 2em; }
+    </style>
+</head>
+<body>
+    <h1>Herramienta de Despliegue SGC - ISO 9001:2015</h1>
+    <h2>Registro de Incidencias</h2>
+    <form method="post" action="/nueva">
+        <label>Título: <input type="text" name="titulo" required></label><br>
+        <label>Descripción: <input type="text" name="descripcion"></label><br>
+        <label>Fecha: <input type="date" name="fecha" required></label><br>
+        <button type="submit">Registrar Incidencia</button>
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Estado</th>
+            <th>Fecha</th>
+        </tr>
+        {% for inc in incidencias %}
+        <tr>
+            <td>{{ inc[0] }}</td>
+            <td>{{ inc[1] }}</td>
+            <td>{{ inc[2] }}</td>
+            <td>{{ inc[3] }}</td>
+            <td>{{ inc[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

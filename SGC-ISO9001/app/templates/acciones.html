@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Acciones Correctivas</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Acciones Correctivas</h1>
-    <form method="post" action="/acciones">
+    <div class="header">
+        <h1>Acciones Correctivas</h1>
+    </div>
+    <div class="main">
+        <div class="card">
+            <form method="post" action="/acciones">
         <label>Descripción: <input type="text" name="descripcion" required></label><br>
         <label>Responsable: <input type="text" name="responsable" required></label><br>
         <label>Estado:

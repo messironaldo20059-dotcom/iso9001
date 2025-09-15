@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Capacitación</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Capacitación</h1>
-    <form method="post" action="/capacitacion">
+    <div class="header">
+        <h1>Capacitación</h1>
+    </div>
+    <div class="main">
+        <div class="card">
+            <form method="post" action="/capacitacion">
         <label>Tema: <input type="text" name="tema" required></label><br>
         <label>Tipo:
             <select name="tipo" required>

@@ -1,8 +1,39 @@
-from flask import Flask, render_template, request, redirect, url_for, Response
+from flask import Flask, render_template, request, redirect, url_for, Response, session
 import sqlite3
 import os
 
 app = Flask(__name__)
+app.secret_key = 'supersecretkey'  # Cambia esto por una clave segura en producción
+# Página de inicio de sesión
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        # Usuario y contraseña fijos para ejemplo
+        if username == 'admin' and password == 'admin':
+            session['logged_in'] = True
+            return redirect(url_for('index'))
+        else:
+            error = 'Usuario o contraseña incorrectos.'
+    return render_template('login.html', error=error)
+
+# Cerrar sesión
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('login'))
+
+# Decorador para requerir login
+from functools import wraps
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get('logged_in'):
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
 DB_PATH = os.path.join(os.path.dirname(__file__), 'sgc.db')
 
 # Exportar pruebas a CSV
@@ -141,13 +172,17 @@ def init_db():
 
 init_db()
 
-# Página principal
+
+# Página principal protegida
 @app.route('/')
+@login_required
 def index():
     return render_template('menu.html')
 
+
 # Incidencias
 @app.route('/incidencias')
+@login_required
 def incidencias():
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
@@ -172,6 +207,7 @@ def nueva_incidencia():
 
 # Documentos
 @app.route('/documentos', methods=['GET', 'POST'])
+@login_required
 def documentos():
     if request.method == 'POST':
         tipo = request.form['tipo']
@@ -212,6 +248,7 @@ def exportar_documentos():
 
 # Pruebas de software
 @app.route('/pruebas', methods=['GET', 'POST'])
+@login_required
 def pruebas():
     if request.method == 'POST':
         nombre = request.form['nombre']
@@ -232,6 +269,7 @@ def pruebas():
 
 # Acciones correctivas
 @app.route('/acciones', methods=['GET', 'POST'])
+@login_required
 def acciones():
     if request.method == 'POST':
         descripcion = request.form['descripcion']
@@ -253,6 +291,7 @@ def acciones():
 
 # Indicadores
 @app.route('/indicadores', methods=['GET', 'POST'])
+@login_required
 def indicadores():
     if request.method == 'POST':
         nombre = request.form['nombre']
@@ -273,6 +312,7 @@ def indicadores():
 
 # Auditorías
 @app.route('/auditorias', methods=['GET', 'POST'])
+@login_required
 def auditorias():
     if request.method == 'POST':
         tipo = request.form['tipo']
@@ -293,6 +333,7 @@ def auditorias():
 
 # Capacitación
 @app.route('/capacitacion', methods=['GET', 'POST'])
+@login_required
 def capacitacion():
     if request.method == 'POST':
         tema = request.form['tema']

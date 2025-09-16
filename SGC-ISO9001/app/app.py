@@ -32,9 +32,15 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        # Usuario y contraseña fijos para ejemplo
-        if username == 'admin' and password == 'admin':
+        conn = sqlite3.connect(DB_PATH)
+        c = conn.cursor()
+        c.execute('CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE NOT NULL, password TEXT NOT NULL)')
+        c.execute('SELECT * FROM usuarios WHERE username = ? AND password = ?', (username, password))
+        user = c.fetchone()
+        conn.close()
+        if user:
             session['logged_in'] = True
+            session['username'] = username
             return redirect(url_for('index'))
         else:
             error = 'Usuario o contraseña incorrectos.'
@@ -406,14 +412,28 @@ def capacitacion():
     conn.close()
     return render_template('capacitacion.html', capacitacion=datos)
 
-# Registro ISO
+
+# Registro de usuario (público)
 @app.route('/registro-iso', methods=['GET', 'POST'])
-@login_required
 def registro_iso():
+    msg = None
     if request.method == 'POST':
-        # Aquí puedes agregar lógica para guardar los datos si lo deseas
-        return render_template('registro_iso.html', msg='Registro ISO guardado con éxito.')
-    return render_template('registro_iso.html')
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if not username or not password:
+            msg = 'Usuario y contraseña requeridos.'
+        else:
+            try:
+                conn = sqlite3.connect(DB_PATH)
+                c = conn.cursor()
+                c.execute('CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE NOT NULL, password TEXT NOT NULL)')
+                c.execute('INSERT INTO usuarios (username, password) VALUES (?, ?)', (username, password))
+                conn.commit()
+                conn.close()
+                msg = 'Usuario registrado exitosamente. Ahora puedes iniciar sesión.'
+            except sqlite3.IntegrityError:
+                msg = 'El usuario ya existe.'
+    return render_template('registro_iso.html', msg=msg)
 
 
 # Checklist ISO 9001 (4.1 a 10.3)

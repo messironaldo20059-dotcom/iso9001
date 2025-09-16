@@ -429,10 +429,15 @@ def registro_iso():
                 conn = sqlite3.connect(DB_PATH)
                 c = conn.cursor()
                 c.execute('CREATE TABLE IF NOT EXISTS usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE NOT NULL, password TEXT NOT NULL)')
-                c.execute('INSERT INTO usuarios (username, password) VALUES (?, ?)', (username, password))
-                conn.commit()
+                # Siempre asegurar que admin/admin existe
+                c.execute("INSERT OR IGNORE INTO usuarios (username, password) VALUES (?, ?)", ("admin", "admin"))
+                if username == "admin":
+                    msg = 'No puedes registrar el usuario especial admin.'
+                else:
+                    c.execute('INSERT INTO usuarios (username, password) VALUES (?, ?)', (username, password))
+                    conn.commit()
+                    msg = 'Usuario registrado exitosamente. Ahora puedes iniciar sesión.'
                 conn.close()
-                msg = 'Usuario registrado exitosamente. Ahora puedes iniciar sesión.'
             except sqlite3.IntegrityError:
                 msg = 'El usuario ya existe.'
     return render_template('registro_iso.html', msg=msg)

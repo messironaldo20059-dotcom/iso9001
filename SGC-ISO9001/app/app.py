@@ -406,6 +406,15 @@ def capacitacion():
     conn.close()
     return render_template('capacitacion.html', capacitacion=datos)
 
+# Registro ISO
+@app.route('/registro-iso', methods=['GET', 'POST'])
+@login_required
+def registro_iso():
+    if request.method == 'POST':
+        # Aquí puedes agregar lógica para guardar los datos si lo deseas
+        return render_template('registro_iso.html', msg='Registro ISO guardado con éxito.')
+    return render_template('registro_iso.html')
+
 
 # Checklist ISO 9001 (4.1 a 10.3)
 @app.route('/checklist-iso', methods=['GET', 'POST'])

@@ -232,6 +232,11 @@ def init_db():
 
 init_db()
 
+# Ruta para entrar como invitado (sin login)
+@app.route('/invitado')
+def invitado():
+    return render_template('menu.html')
+
 
 # Página principal protegida
 @app.route('/')

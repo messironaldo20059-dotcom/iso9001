@@ -1,6 +1,3 @@
-@app.route('/invitado')
-def invitado():
-    return render_template('menu.html', invitado=True)
 
 
 

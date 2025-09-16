@@ -10,18 +10,34 @@
         <h1>Herramienta SGC - ISO 9001:2015</h1>
     </div>
     <div class="main">
-        <div class="card">
-            <ul style="list-style:none; padding:0;">
-                <li style="margin-bottom: 1.5rem;"><a class="btn" href="/incidencias">Gestión de Incidencias</a></li>
-                <li style="margin-bottom: 1.5rem;"><a class="btn" href="/documentos">Estructura Documental</a></li>
-                <li style="margin-bottom: 1.5rem;"><a class="btn" href="/pruebas">Pruebas de Software</a></li>
-                <li style="margin-bottom: 1.5rem;"><a class="btn" href="/acciones">Acciones Correctivas</a></li>
-                <li style="margin-bottom: 1.5rem;"><a class="btn" href="/indicadores">Indicadores de Desempeño</a></li>
-                <li style="margin-bottom: 1.5rem;"><a class="btn" href="/auditorias">Auditorías</a></li>
-                <li style="margin-bottom: 1.5rem;"><a class="btn" href="/capacitacion">Capacitación</a></li>
-                <li style="margin-bottom: 1.5rem;"><a class="btn" href="/checklist-iso" style="background:#4DA6FF; color:#fff; font-weight:600;">Checklist ISO 9001 (4.1-10.3)</a></li>
-                <li><a class="btn btn-logout" href="/logout" style="background:#c00; color:#fff;">Cerrar sesión</a></li>
-            </ul>
+        <div class="card" id="iso9001-main">
+            <button class="btn" style="width:100%; font-size:1.5rem; padding:2rem; background:#4DA6FF; color:#fff; font-weight:700;" onclick="document.getElementById('iso-sections').style.display='block'; this.style.display='none';">ISO 9001</button>
+            <div id="iso-sections" style="display:none; margin-top:2rem;">
+                <div style="margin-bottom:2rem;">
+                    <h2>Auditorías</h2>
+                    <ul style="list-style:none; padding:0;">
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/auditorias">Auditorías</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/checklist-iso">Checklist ISO 9001 (4.1-10.3)</a></li>
+                    </ul>
+                </div>
+                <div style="margin-bottom:2rem;">
+                    <h2>Capacitación</h2>
+                    <ul style="list-style:none; padding:0;">
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/capacitacion">Capacitación</a></li>
+                    </ul>
+                </div>
+                <div style="margin-bottom:2rem;">
+                    <h2>Implementación</h2>
+                    <ul style="list-style:none; padding:0;">
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/incidencias">Gestión de Incidencias</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/documentos">Estructura Documental</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/pruebas">Pruebas de Software</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/acciones">Acciones Correctivas</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/indicadores">Indicadores de Desempeño</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-logout" href="/logout" style="background:#c00; color:#fff;">Cerrar sesión</a>
+            </div>
         </div>
     </div>
 </body>

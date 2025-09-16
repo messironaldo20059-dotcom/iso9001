@@ -8,37 +8,71 @@
 <body>
     <div class="header">
         <h1>Herramienta SGC - ISO 9001:2015</h1>
+        <a href="#" onclick="mostrarAyuda()" title="Ayuda" style="font-size:1.5rem; color:#4DA6FF; text-decoration:none; margin-left:1rem;">❓</a>
     </div>
     <div class="main">
+        <div class="card" id="bienvenida">
+            <h2>Bienvenido/a</h2>
+            <p>Esta herramienta le ayuda a gestionar los procesos clave de la norma ISO 9001:2015 de forma sencilla.<br>
+            Seleccione <b>ISO 9001</b> para comenzar. Si necesita ayuda, haga clic en el ícono <b>❓</b> arriba.</p>
+        </div>
         <div class="card" id="iso9001-main">
-            <button class="btn" style="width:100%; font-size:1.5rem; padding:2rem; background:#4DA6FF; color:#fff; font-weight:700;" onclick="document.getElementById('iso-sections').style.display='block'; this.style.display='none';">ISO 9001</button>
+            <button class="btn" style="width:100%; font-size:1.5rem; padding:2rem; background:#4DA6FF; color:#fff; font-weight:700; display:block;" onclick="document.getElementById('iso-sections').style.display='block'; this.style.display='none'; document.getElementById('bienvenida').style.display='none';">ISO 9001</button>
             <div id="iso-sections" style="display:none; margin-top:2rem;">
                 <div style="margin-bottom:2rem;">
-                    <h2>Auditorías</h2>
+                    <h2>Auditorías <span title="Aquí puede gestionar auditorías internas y checklist de cumplimiento">📝</span></h2>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom: 1rem;"><a class="btn" href="/auditorias">Auditorías</a></li>
-                        <li style="margin-bottom: 1rem;"><a class="btn" href="/checklist-iso">Checklist ISO 9001 (4.1-10.3)</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/auditorias" title="Registrar y consultar auditorías"><span style="font-size:1.2rem;">🗂️</span> Auditorías</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/checklist-iso" title="Checklist de requisitos ISO"><span style="font-size:1.2rem;">✅</span> Checklist ISO 9001 (4.1-10.3)</a></li>
                     </ul>
                 </div>
                 <div style="margin-bottom:2rem;">
-                    <h2>Capacitación</h2>
+                    <h2>Capacitación <span title="Gestione y registre capacitaciones del personal">📚</span></h2>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom: 1rem;"><a class="btn" href="/capacitacion">Capacitación</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/capacitacion" title="Registrar y consultar capacitaciones"><span style="font-size:1.2rem;">👨‍🏫</span> Capacitación</a></li>
                     </ul>
                 </div>
                 <div style="margin-bottom:2rem;">
-                    <h2>Implementación</h2>
+                    <h2>Implementación <span title="Herramientas para la implementación y mejora continua">⚙️</span></h2>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom: 1rem;"><a class="btn" href="/incidencias">Gestión de Incidencias</a></li>
-                        <li style="margin-bottom: 1rem;"><a class="btn" href="/documentos">Estructura Documental</a></li>
-                        <li style="margin-bottom: 1rem;"><a class="btn" href="/pruebas">Pruebas de Software</a></li>
-                        <li style="margin-bottom: 1rem;"><a class="btn" href="/acciones">Acciones Correctivas</a></li>
-                        <li style="margin-bottom: 1rem;"><a class="btn" href="/indicadores">Indicadores de Desempeño</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/incidencias" title="Registrar y consultar incidencias"><span style="font-size:1.2rem;">🚨</span> Gestión de Incidencias</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/documentos" title="Gestión de documentos y formatos"><span style="font-size:1.2rem;">📄</span> Estructura Documental</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/pruebas" title="Registrar y consultar pruebas de software"><span style="font-size:1.2rem;">🧪</span> Pruebas de Software</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/acciones" title="Registrar acciones correctivas"><span style="font-size:1.2rem;">🛠️</span> Acciones Correctivas</a></li>
+                        <li style="margin-bottom: 1rem;"><a class="btn" href="/indicadores" title="Ver indicadores de desempeño"><span style="font-size:1.2rem;">📊</span> Indicadores de Desempeño</a></li>
                     </ul>
                 </div>
-                <a class="btn btn-logout" href="/logout" style="background:#c00; color:#fff;">Cerrar sesión</a>
+                <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                    <a class="btn" href="#" onclick="volverInicio()" style="background:#10b981; color:#fff;">⬅️ Volver al inicio</a>
+                    <a class="btn" href="mailto:soporte@empresa.com" style="background:#f59e42; color:#fff;">💬 Soporte</a>
+                    <a class="btn btn-logout" href="/logout" style="background:#c00; color:#fff;">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+        <div id="ayuda-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); z-index:9999; align-items:center; justify-content:center;">
+            <div style="background:#fff; border-radius:1rem; padding:2rem; max-width:400px; margin:auto; box-shadow:0 2px 16px #0002;">
+                <h2>Ayuda rápida</h2>
+                <ul style="padding-left:1.2rem;">
+                    <li><b>ISO 9001</b>: Pulse el botón para ver las opciones principales.</li>
+                    <li><b>Auditorías</b>: Gestione auditorías y checklist de cumplimiento.</li>
+                    <li><b>Capacitación</b>: Registre y consulte capacitaciones del personal.</li>
+                    <li><b>Implementación</b>: Acceda a herramientas para incidencias, documentos, pruebas, acciones e indicadores.</li>
+                    <li>Use los iconos para identificar rápidamente cada función.</li>
+                    <li>Para soporte, pulse <b>💬 Soporte</b>.</li>
+                </ul>
+                <button class="btn" onclick="document.getElementById('ayuda-modal').style.display='none';">Cerrar</button>
             </div>
         </div>
     </div>
+    <script>
+    function volverInicio() {
+        document.getElementById('iso-sections').style.display = 'none';
+        document.getElementById('iso9001-main').querySelector('button').style.display = 'block';
+        document.getElementById('bienvenida').style.display = 'block';
+    }
+    function mostrarAyuda() {
+        document.getElementById('ayuda-modal').style.display = 'flex';
+    }
+    </script>
 </body>
 </html>

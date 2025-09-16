@@ -81,6 +81,26 @@
             <div class="success">{{ msg }}</div>
         {% endif %}
         <div class="checklist">
+            <style>
+                .checklist-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 2rem;
+                }
+                .checklist-table th, .checklist-table td {
+                    border: 1px solid #e5e7eb;
+                    padding: 0.5rem 0.4rem;
+                    text-align: left;
+                }
+                .checklist-table th {
+                    background: #f1f5f9;
+                    color: #2563eb;
+                    font-weight: 600;
+                }
+                .checklist-table td.radio {
+                    text-align: center;
+                }
+            </style>
             {% set items = [
                 ('c4_1', '4.1 Comprensión de la organización y su contexto'),
                 ('c4_2', '4.2 Necesidades y expectativas de las partes interesadas'),
@@ -111,17 +131,26 @@
                 ('c10_2', '10.2 Mejora continua'),
                 ('c10_3', '10.3 Innovación y aprendizaje organizacional')
             ] %}
-            {% for key, label in items %}
-            <div class="item">
-                <label>{{ label }}</label>
-                <input type="radio" name="{{ key }}" value="2" id="{{ key }}_aprobado" required>
-                <label for="{{ key }}_aprobado" style="color: #059669;">Aprobado</label>
-                <input type="radio" name="{{ key }}" value="1" id="{{ key }}_proceso">
-                <label for="{{ key }}_proceso" style="color: #f59e42;">En proceso</label>
-                <input type="radio" name="{{ key }}" value="0" id="{{ key }}_rechazado">
-                <label for="{{ key }}_rechazado" style="color: #ef4444;">Rechazado</label>
-            </div>
-            {% endfor %}
+            <table class="checklist-table">
+                <thead>
+                    <tr>
+                        <th>Requisito</th>
+                        <th class="radio">Aprobado</th>
+                        <th class="radio">En proceso</th>
+                        <th class="radio">Rechazado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for key, label in items %}
+                    <tr>
+                        <td>{{ label }}</td>
+                        <td class="radio"><input type="radio" name="{{ key }}" value="2" id="{{ key }}_aprobado" required></td>
+                        <td class="radio"><input type="radio" name="{{ key }}" value="1" id="{{ key }}_proceso"></td>
+                        <td class="radio"><input type="radio" name="{{ key }}" value="0" id="{{ key }}_rechazado"></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
         <div class="actions">
             <button type="submit" class="btn">Guardar Checklist</button>

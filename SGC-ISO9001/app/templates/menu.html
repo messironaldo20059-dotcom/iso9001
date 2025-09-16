@@ -14,25 +14,26 @@
         <div class="card" id="bienvenida">
             <h2>Bienvenido/a</h2>
             <p>Esta herramienta le ayuda a gestionar los procesos clave de la norma ISO 9001:2015 de forma sencilla.<br>
-            Seleccione <b>ISO 9001</b> para comenzar. Si necesita ayuda, haga clic en el ícono <b>❓</b> arriba.</p>
+            <span style="font-size:0.98rem; color:#444;">ISO 9001 es una norma internacional que define los requisitos para un sistema de gestión de la calidad en las organizaciones.</span></p>
+            <button class="btn" style="width:100%; font-size:1.2rem; padding:1.2rem; margin-top:1.5rem; background:#6366f1; color:#fff; font-weight:700; display:block; opacity:0.85;">ISO 27001 (próximamente)</button>
         </div>
         <div class="card" id="iso9001-main">
-            <button class="btn" style="width:100%; font-size:1.5rem; padding:2rem; background:#4DA6FF; color:#fff; font-weight:700; display:block;" onclick="document.getElementById('iso-sections').style.display='block'; this.style.display='none'; document.getElementById('bienvenida').style.display='none';">ISO 9001</button>
+            <button class="btn" style="width:100%; font-size:1.5rem; padding:2rem; background:#4DA6FF; color:#fff; font-weight:700; display:block; margin-bottom:2.5rem;" onclick="document.getElementById('iso-sections').style.display='block'; this.style.display='none'; document.getElementById('bienvenida').style.display='none';">ISO 9001</button>
             <div id="iso-sections" style="display:none; margin-top:2rem;">
-                <div style="margin-bottom:2rem;">
+                <div style="margin-bottom:3.5rem;">
                     <h2>Auditorías <span title="Aquí puede gestionar auditorías internas y checklist de cumplimiento">📝</span></h2>
                     <ul style="list-style:none; padding:0;">
                         <li style="margin-bottom: 1rem;"><a class="btn" href="/auditorias" title="Registrar y consultar auditorías"><span style="font-size:1.2rem;">🗂️</span> Auditorías</a></li>
                         <li style="margin-bottom: 1rem;"><a class="btn" href="/checklist-iso" title="Checklist de requisitos ISO"><span style="font-size:1.2rem;">✅</span> Checklist ISO 9001 (4.1-10.3)</a></li>
                     </ul>
                 </div>
-                <div style="margin-bottom:2rem;">
+                <div style="margin-bottom:3.5rem;">
                     <h2>Capacitación <span title="Gestione y registre capacitaciones del personal">📚</span></h2>
                     <ul style="list-style:none; padding:0;">
                         <li style="margin-bottom: 1rem;"><a class="btn" href="/capacitacion" title="Registrar y consultar capacitaciones"><span style="font-size:1.2rem;">👨‍🏫</span> Capacitación</a></li>
                     </ul>
                 </div>
-                <div style="margin-bottom:2rem;">
+                <div style="margin-bottom:3.5rem;">
                     <h2>Implementación <span title="Herramientas para la implementación y mejora continua">⚙️</span></h2>
                     <ul style="list-style:none; padding:0;">
                         <li style="margin-bottom: 1rem;"><a class="btn" href="/incidencias" title="Registrar y consultar incidencias"><span style="font-size:1.2rem;">🚨</span> Gestión de Incidencias</a></li>
@@ -44,7 +45,6 @@
                 </div>
                 <div style="display:flex; gap:1rem; flex-wrap:wrap;">
                     <a class="btn" href="#" onclick="volverInicio()" style="background:#10b981; color:#fff;">⬅️ Volver al inicio</a>
-                    <a class="btn" href="mailto:soporte@empresa.com" style="background:#f59e42; color:#fff;">💬 Soporte</a>
                     <a class="btn btn-logout" href="/logout" style="background:#c00; color:#fff;">Cerrar sesión</a>
                 </div>
             </div>
